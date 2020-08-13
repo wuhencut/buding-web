@@ -1,0 +1,166 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+}
+
+.flex{
+    display: flex;
+}
+
+.page-share {
+    -webkit-overflow-scrolling: touch;
+    background: #f1f1f1;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.campaign-info {
+    padding: 18px 24px 0 24px;
+    background: #fff;
+}
+
+.campaign-info .campaign-title {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 23px;
+}
+
+.campaign-info .campaign-title .campaign-tags{
+    font-size: 12px;
+    color: #06C7EC;
+    display: flex;
+}
+.campaign-info .campaign-title .campaign-tags .tag{
+    background-color: #e7f9fd;
+    padding: 2px 4px;
+    margin: 4px 4px 0 0;
+}
+
+ .campaigin-owner {
+    display: flex;
+}
+
+.campaigin-owner img {
+    width: 34px;
+    height: 34px;
+    border-radius: 17px;
+}
+
+.campaigin-owner .owner-detail {
+    font-size: 12px;
+    padding-left: 8px;
+    color: #989898;
+}
+
+.campaigin-owner .owner-detail .nickname {
+    font-weight: bold;
+    color: #000;
+}
+
+.campaign-info .campaigin-detail {
+    padding-top: 24px;
+    padding-bottom: 16px;
+    font-size: 14px;
+    word-break: break-all;
+}
+
+.campaign-info .offer-price {
+    font-size: 28px;
+    font-weight: bold;
+    color: #06C7EC;
+    padding: 12px 0;
+    border-bottom: 1px solid #efefef;
+}
+
+.campaign-info .offer-price .unit {
+    font-size: 14px;
+    padding-left: 4px;
+}
+
+.campaign-info .campaign-time {
+    padding: 16px 0;
+    color: #989898;
+    font-size: 14px;
+    display: flex;
+}
+
+.txt-s12 {
+    font-size: 12px;
+}
+
+.txt-s14 {
+    font-size: 14px;
+}
+
+.txt-s16{
+    font-size: 16px;
+}
+
+.txt-s18{
+    font-size: 18px;
+}
+
+.txt-gray {
+    color: gray;
+}
+
+.txt-bold{
+    font-weight: bold;
+}
+
+.mod-replly {
+    padding: 24px 0 30px 0;
+}
+
+.mod-replly  .title{
+    padding-bottom: 20px;
+}
+
+.mod-replly .content{
+    padding: 16px 0 24px 0;
+    border-bottom: 1px solid #e1e1e1;
+    word-break: break-all;
+}
+
+.mod-watchers {
+    padding-bottom: 100px;
+}
+
+.mod-watchers .money{
+    color: #06C7EC;
+}
+
+.txt-center{
+    text-align: center;
+}
+
+.watcher-pics {
+    padding-top: 14px;
+    height: 40px;
+    overflow: hidden;
+}
+.wrapper-outer {
+    height: 50px;
+    width: 100%;
+    overflow: scroll;
+}
+.wrapper-outer .wrapper{
+    white-space: nowrap;
+}
+
+.wrapper-outer .wrapper img{
+    width: 24px;
+    height: 24px;
+    border-radius:12px;
+    margin-right: 6px;
+}
+
+.swiper-pagination-bullet-active{
+    background: #06C7EC;
+}

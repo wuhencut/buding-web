@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>补叮，生活小帮手</title>
+  <meta name="author" content="Matthew Howell" />
+  <meta name="description" content="fullPage continuous scrolling demo." />
+  <meta name="keywords" content="fullpage,jquery,demo,scroll,loop,continuous" />
+  <meta name="Resource-type" content="Document" />
+  <link rel="icon" href="img/index-logo.png">
+  <link rel="stylesheet" type="text/css" href="./lib/swiper.min.css">
+  <link rel="stylesheet" type="text/css" href="css/base.css?v=0605_3">
+  <link rel="stylesheet" type="text/css" href="css/index-phone.css?v=0610_2" />
+  <link rel="stylesheet" type="text/css" href="css/index-pc.css?v=0610_2">
+</head>
+
+<body>
+  <div class="page">
+    <!-- pc和phone分开写，方便调试与兼容 -->
+    <!-- pc模式 -->
+    <div class="page-pc">
+      <div class="fix-header flex">
+        <div class="left-logo flex-s1"><img src="./img/index/index-pc-logo.png" alt=""></div>
+        <div class="nav-btns txt-s20 flex txt-bold">
+          <div class="nav-btn" :class="{'nav-btn-active': activeIndexOuter == 0}" @click="jumpIndexTo(0)">首页</div>
+          <div class="nav-btn" :class="{'nav-btn-active': activeIndexOuter == 1}" @click="jumpIndexTo(1)">关于补叮</div>
+          <div class="nav-btn" :class="{'nav-btn-active': activeIndexOuter == 2}" @click="jumpIndexTo(2)">联系我们</div>
+        </div>
+      </div>
+      <div class="page-main swiper-no-swiping">
+        <div class="swiper-container index-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide index-1">
+              <div class="index1-wrapper flex">
+                <div class="left flex flex-s1">
+                  <div>
+                    <p class="title txt-s56 txt-bold">有困难，找补叮</p>
+                    <p class="tip txt-s24 txt-bold">PATCHLINKER</p>
+                    <p style="line-height: 30px;" class="content txt-s18">-随时随地个性化任务发布；知识、技能、时间分享；无界 <br>
+                      的自由工作机会；好玩、自由、多元。</p>
+                    <p class="down-btn txt-s2 txt-bold" @click="showDownload = !showDownload">下载补叮</p>
+                  </div>
+                </div>
+                <div class="right flex-s1 flex">
+                  <img src="./img/index/index-1.png" alt="">
+                </div>
+              </div>
+              <div class="mod-download flex flex-center" :class="{'mod-download-show': showDownload}">
+                <span class="close-mod-download" @click="showDownload = false"></span>
+                <div v-show="showDownload" class="down-btn flex">
+                  <div class="btn ios" @mouseover="showIosQrcode = true" @mouseout="showIosQrcode = false">
+                    <img v-show="showIosQrcode" src="./img/index/ios-qrcode.png" alt="">
+                    <div class="ios-btn flex">
+                      <img src="./img/index/ios-download.png" alt="">
+                    </div>
+                  </div>
+                  <div class="btn android" @mouseover="showAndroidQrcode = true" @mouseout="showAndroidQrcode = false">
+                    <img v-show="showAndroidQrcode" src="./img/index/Android-qrcode.png" alt="">
+                    <div class="android-btn flex">
+                      <img src="./img/index/android-download.png" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="index-second swiper-container">
+                <div class="mod-nav">
+                  <div class="wrapper flex flex-center">
+                    <img @click="innerJumpIndexTo(0)" :class="activeIndexInner == 0 ? 'active' : 'inactive'"
+                      :src="activeIndexInner == 0 ? './img/index/second/icon1-active.png' : './img/index/second/icon1.png'"
+                      alt="">
+                    <span class="line"></span>
+                    <img @click="innerJumpIndexTo(1)" :class="activeIndexInner == 1 ? 'active' : 'inactive'"
+                      :src="activeIndexInner == 1 ? './img/index/second/icon2-active.png' : './img/index/second/icon2.png'"
+                      alt="">
+                    <span class="line"></span>
+                    <img @click="innerJumpIndexTo(2)" :class="activeIndexInner == 2 ? 'active' : 'inactive'"
+                      :src="activeIndexInner == 2 ? './img/index/second/icon3-active.png' : './img/index/second/icon3.png'"
+                      alt="">
+                    <span class="line"></span>
+                    <img @click="innerJumpIndexTo(3)" :class="activeIndexInner == 3 ? 'active' : 'inactive'"
+                      :src="activeIndexInner == 3 ? './img/index/second/icon4-active.png' : './img/index/second/icon4.png'"
+                      alt="">
+                  </div>
+                </div>
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide flex flex-middle flex-center">
+                    <div class="wrapper">
+                      <div class="mod-title">
+                        <p class="title-bg txt-bold">PATCHLINKER</p>
+                        <p class="title txt-s56 txt-bold">补叮是什么</p>
+                      </div>
+                      <div class="mod-content txt-s18">
+                        <p>补叮是一款基于移动互联网的知识技能及时间分享APP。分享经济将重塑社会组织和分工，</p>
+                        <p>“公司+员工”将在越来越多的领域被“平台+个人”所替代。</p>
+                        <p>补叮将最大化实现有限社会资源的合理分配，并帮助生活中有困难需要解决和有挣钱需求的用户解决各自的需求。</p>
+                        <video style="margin-top: 10px;" src="./img/index/video/introduce.mp4"
+                          controls="controls" poster="./img/index/video/video-img.png"></video>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide flex flex-middle flex-center">
+                    <div class="wrapper">
+                      <div class="mod-title">
+                        <p class="title-bg txt-bold">PATCHLINKER</p>
+                        <p class="title txt-s56 txt-bold">怎么通过补叮分享并换取收入？</p>
+                      </div>
+                      <div class="mod-content txt-s18">
+                        <p>补叮平台的交易侧重于买方市场，并采取集市型的交易模式。</p>
+                        <p>简单来说，A用户发布一个个性化的任务，可以收到许多B用户的解决申请；</p>
+                        <p>B用户若觉得A的定价过高，可以通过议价将新的价格（仅能议价一次）回报给用户A。</p>
+                        <p>最终由A用户接受申请/议价确定交易的达成。</p>
+                        <p>交易达成后，还有一段由A用户决定的任务时长，B用户必须在任务时长内解决A的需求。</p>
+                        <p>在双方都确认任务完成后，任务金额会即时打入B用户的补叮钱包，B用户可自由取现或使用于发布新的任务。</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide flex flex-middle flex-center">
+                    <div class="wrapper">
+                      <div class="mod-title">
+                        <p class="title-bg txt-bold">PATCHLINKER</p>
+                        <p class="title txt-s56 txt-bold">我什么时候能得到我的报酬？</p>
+                      </div>
+                      <div class="mod-content txt-s18">
+                        <p>在补叮，报酬的支付与到账都是即时的。</p>
+                        <p>当任务的发布者点击“确认完成”后或任务进行时间超过“任务时长”后6个小时，</p>
+                        <p> 任务相应费用会即时达到任务完成人的补叮钱包。</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide flex flex-middle flex-center">
+                    <div class="wrapper">
+                      <div class="mod-title">
+                        <p class="title-bg txt-bold">PATCHLINKER</p>
+                        <p class="title txt-s56 txt-bold">我的交易对手是谁？</p>
+                      </div>
+                      <div class="mod-content txt-s18">
+                        <p>在补叮，为保证任务质量，无论您是任务发布者或分享者，您的交易对手都是通过补叮实名认证的平台用户。</p>
+                        <p>您可以通过对方个人作品或自荐描述选取您认为最为合适的交易对象。在双方达成交易后，您可以与交易对手取得联系。</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- <div class="swiper-pagination"></div> -->
+                <!--分页器。如果放置在swiper-container外面，需要自定义样式。-->
+              </div>
+            </div>
+            <div class="index-third swiper-slide flex flex-middle flex-center">
+              <div class="wrapper">
+                <div class="mod-title">
+                  <p class="title-bg txt-bold">PATCHLINKER</p>
+                  <p class="title txt-s56 txt-bold">联系我们</p>
+                </div>
+                <div class="concat-us txt-s14 flex flex-center">
+                  <div class="weibo channel flex flex-middle">
+                    <div style="width: 100%;">
+                      <img style="width: 27px; height: 22px" src="./img/index/third/icon-weibo.png" alt="">
+                      <p class="name txt-s14 txt-bold">微博</p>
+                      <p class="rule txt-s14">补叮分享</p>
+                    </div>
+                  </div>
+                  <div class="weibo channel flex flex-middle">
+                    <div style="width: 100%;">
+                      <img style="width: 25px; height: 20px" src="./img/index/third/icon-email.png" alt="">
+                      <p class="name txt-s14 txt-bold">邮箱</p>
+                      <p class="rule txt-s14">service@patchlinker.com</p>
+                    </div>
+                  </div>
+                  <div class="weibo channel flex flex-middle">
+                    <div style="width: 100%">
+                      <img style="width: 24px;height: 27px;" src="./img/index/third/icon-douyin.png" alt="">
+                      <p class="name txt-s14 txt-bold">抖音</p>
+                      <p class="rule txt-s14">service@patchlinker.com</p>
+                    </div>
+                  </div>
+                  <div style="margin-right: 0;" class="weibo channel flex flex-middle">
+                    <div style="width: 100%">
+                      <img style="width: 25px; height: 25px" src="./img/index/third/icon-join.png" alt="">
+                      <p class="name txt-s14 txt-bold">加入补叮团队</p>
+                      <p class="rule txt-s14">请将您的简历发送到邮箱 </p>
+                      <p class="rule txt-s14"> HR@patchlinker.com</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="copy-right">
+                  版权归杭州集醒网络科技有限责任公司所有
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Add Pagination -->
+        <!-- <div class="swiper-pagination"></div> -->
+      </div>
+    </div>
+    <!-- 手机模式 -->
+    <div class="page-phone">
+      <div class="fix-header">
+        <img class="logo" src="./img/index/index-pc-logo.png" alt="">
+        <a class="download-btn txt-s14" href="https://a.app.qq.com/o/simple.jsp?pkgname=com.patchlinker.buding">免费下载</a>
+      </div>
+      <div class="swiper-container index-swiper-phone">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide flex-top">
+            <div class="index1">
+              <p class="swagger txt-s28 txt-bold txt-left">有困难, 找补叮</p>
+              <p class="logo-txt txt-s14 txt-bold">PATCHLINKER</p>
+              <p class="app-intro txt-s14">
+                - 随时随地个性化任务发布； <br>
+                - 知识、技能、时间分享；<br>
+                - 无界的自由工作机会；<br>
+                - 好玩、自由、多元。
+              </p>
+              <img style="margin-top: 38px;" width="100%" src="./img/index/index-1.png" alt="">
+            </div>
+          </div>
+          <div style="padding-left: 0;padding-right: 0;" class="swiper-slide txt-center flex-top">
+            <div class="txt-center wrapper">
+              <div class="mod-title">
+                <p class="title-bg txt-center txt-bold">PATCHLINKER</p>
+                <p class="title txt-s28 txt-bold">补叮是什么？</p>
+              </div>
+              <div class="mod-content txt-s12" style="padding-top: 60px">
+                <p>补叮是一款基于移动互联网的知识技能及时间分享APP。</p>
+                <p>分享经济将重塑社会组织和分工，</p>
+                <p>“公司+员工”将在越来越多的领域被“平台+个人”所替代。</p>
+                <p>补叮将最大化实现有限社会资源的合理分配，</p>
+                <p>并帮助生活中有困难需要解决和有挣钱需求的用户解决各自的需求。</p>
+                <div style="padding: 0 24px;">
+                  <video width="100%" style="margin-top: 10px;" src="./img/index/video/introduce.mp4"
+                  controls="controls"  poster="./img/index/video/video-img.png"></video>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide txt-center flex-top">
+            <div class="txt-center wrapper">
+              <div class="mod-title">
+                <p class="title-bg txt-center txt-bold">PATCHLINKER</p>
+                <p class="title txt-s28 txt-bold">联系我们</p>
+                <p style="padding-top: 18px;" class="txt-s14">您可以通过以下方式与我们联系</p>
+              </div>
+              <div class="mod-content txt-s12">
+                <div style="margin-top: 30px;" class="wrapper-channel flex">
+                  <div class="channel" style="margin-right: 22ppx">
+                    <img style="width: 27px; height: 22px" src="./img/index/third/icon-weibo.png" alt="">
+                    <p class="name">微博</p>
+                    <p class="rule">补叮分享</p>
+                  </div>
+                  <div class="channel">
+                    <img style="width: 25px; height: 20px" src="./img/index/third/icon-email.png" alt="">
+                    <p class="name">邮箱</p>
+                    <p class="rule">service@patchlinker.com</p>
+                  </div>
+                </div>
+                <div class="wrapper-channel flex">
+                  <div class="channel" style="margin-right: 22ppx">
+                    <img style="height: 25px; width: 25px;" src="./img/index/third/icon-join.png" alt="">
+                    <p class="name">加入补叮团队</p>
+                    <p class="rule">请将您的简历发送到邮箱HR@patchlinker.com</p>
+                  </div>
+                  <div class="channel">
+                    <img style="width: 24px;height: 27px;" src="./img/index/third/icon-douyin.png" alt="">
+                    <p class="name">抖音</p>
+                    <p class="rule">补叮/1653978415</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- JS -->
+  <script type="text/javascript" src="./lib/vue.min.js"></script>
+  <script type="text/javascript" src="./lib/swiper.min.js"></script>
+  <script>
+    let page = new Vue({
+      name: 'Index',
+      el: '.page',
+      data() {
+        return {
+          showPc: true, // 展示pc模式  这个其实可以交给css来处理 
+          activeIndexOuter: 0, // 外层swiper index   
+          activeIndexInner: 0, // 内层swiper index
+          swiper1: {},
+          swiper2: {},
+          swiper3: {},
+          showDownload: false, // 展示下载模块
+          showIosQrcode: false, // IOS 二维码
+          showAndroidQrcode: false, //
+        }
+      },
+      watch: {
+
+      },
+      mounted() {
+        this.initSwiper1();
+        this.initSwiper2();
+        this.initSwiper3();
+      },
+      methods: {
+        initSwiper3() {
+          this.swiper3 = new Swiper('.index-swiper-phone', {
+            direction: 'vertical',
+            slidesPerView: 1
+          })
+        },
+        // 初始化内层swiper
+        initSwiper2() {
+          let t = this;
+          this.swiper2 = new Swiper('.index-second', {
+            slidesPerView: 1,
+            observer: true,//修改swiper自己或子元素时，自动初始化swiper
+            observeParents: true, //修改swiper的父元素时，自动初始化swiper
+            observeSlideChildren: true,
+            autoplay: {
+              delay: 3000,
+              disableOnInteraction: false,
+            },
+            pagination: {
+              el: '.swiper-pagination',
+              clickable: true,
+            },
+            nested: true,
+            on: {
+              slideChange: function () {
+                t.activeIndexInner = this.activeIndex;
+              },
+            },
+          })
+          // this.swiper1.updateSlides()
+        },
+        // 初始化外层swiper
+        initSwiper1() {
+          let t = this;
+          this.swiper1 = new Swiper('.index-swiper', {
+            direction: 'vertical',
+            slidesPerView: 1,
+            observer: true,//修改swiper自己或子元素时，自动初始化swiper
+            observeParents: true, //修改swiper的父元素时，自动初始化swiper
+            observeSlideChildren: true,
+            mousewheel: true,
+            pagination: {
+              el: '.swiper-pagination',
+              clickable: true,
+            },
+            on: {
+              slideChange: function () {
+                t.activeIndexOuter = this.activeIndex;
+              },
+            },
+          })
+        },
+        jumpIndexTo(index) {
+          this.swiper1.slideTo(index, 500)
+          this.activeIndexOuter = index;
+        },
+        innerJumpIndexTo(index) {
+          this.swiper2.slideTo(index, 500)
+          this.activeIndexInner = index;
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>

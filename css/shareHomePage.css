@@ -1,0 +1,187 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+  font-family: "PingFang SC","Avenir", "Microsoft YaHei";
+  -webkit-tap-highlight-color:transparent;
+}
+.page-home{
+    background: transparent;
+    padding: 24px;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    overflow: hidden;
+}
+
+.header-bg{
+    background: url("https://www.quntidongli.com/banner/tuan/img/01.png") top center no-repeat;
+    filter: brightness(50%);
+    background-size: 100% 100%;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    right: 24px;
+    height: 278px;
+    z-index: -1;
+    border-radius: 8px;
+}
+
+.person-info {
+    padding: 16px;
+    overflow: hidden;
+    background: url('../img/bg_mine.png') center center no-repeat;
+    background-size: 100% 100%;
+}
+.person-info .header-pic img{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+}
+
+.logo-icon{
+    background: url('../img/tip-logo.png') center center no-repeat;
+    background-size: 100% 100%;
+    width: 24px;
+    height: 24px;
+    left: 75px;
+    top: 65px;
+    position: absolute;
+    border-radius: 10px;
+}
+
+.person-info .header-pic .tip-icon{
+    float: right;
+    font-size: 10px;
+    background-color: #242422;
+    color: #fff;
+    padding: 4px 6px;
+    border-radius: 4px;
+    margin-left: 6px;
+}
+
+.person-info .name-info{
+    padding-top: 20px;
+}
+
+.person-info .name-info .nickname{
+    color: #fff;
+    font-size: 18px;
+}
+
+.person-info .name-info .nickname img{
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    vertical-align: -5px
+}
+
+.person-info .name-info  .detail{
+    color: #fff;
+    font-size: 12px;
+    padding-top: 4px;
+    opacity: 0.4;
+}
+
+.person-info .social-area{
+    padding-top: 24px;
+    display: flex
+}
+
+.person-info .social-area .social-item {
+    flex: 1;
+}
+
+.person-info .social-area .social-item .social-title{
+    font-size: 12px;
+    color: #fff;
+    opacity: 0.4;
+}
+
+.person-info .social-area .social-item .social-num{
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.person-info .mod-btn{
+    padding-top: 24px;
+    display: flex;
+}
+
+.person-info .mod-btn a{
+    text-decoration: none;
+    flex: 1;
+    border-radius: 4px;
+    line-height: 32px;
+    border:none;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    color:#fff;
+}
+
+.person-info .mod-btn .like{
+    margin-right: 15px;
+    background-color: #06C7EC;
+}
+
+.person-info .mod-btn .chat{
+    background-color: #FAA942;
+}
+
+.person-profile {
+    padding: 18px 0px 24px 0px;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.person-profile .title{
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 16px;
+}
+
+.person-profile .detail{
+    font-size: 14px;
+    color: #2d2d2d;
+}
+
+.pic-list .item-date {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 16px 0;
+}
+
+.pic-list .item-date .date-year{
+    color: #a9a9a9;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.pic-list .pics{
+    display: table;
+    width: 100%;
+}
+
+.pic-list .pics .pic-item{
+    display: inline-block;
+    width: 33%;
+    padding-bottom: 6px;
+}
+
+.pic-list .pics  .pic-item:nth-child(3n + 2){
+    text-align: center;
+}
+
+.pic-list .pics  .pic-item:nth-child(3n + 3){
+    text-align: right;
+}
+
+.pic-list .pics img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+}

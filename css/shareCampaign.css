@@ -1,0 +1,255 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+  font-family: "PingFang SC","Avenir", "Microsoft YaHei";
+  -webkit-tap-highlight-color:transparent;
+}
+
+.flex{
+    display: flex;
+}
+
+.page-share {
+    -webkit-overflow-scrolling: touch;
+    background: #f1f1f1;
+    width: 100%;
+    overflow-y: scroll;
+    height: 100%;
+}
+
+.campaign-info {
+    padding: 18px 24px 0 24px;
+    background: #fff;
+}
+
+.campaign-info .campaign-title {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 23px;
+}
+
+.campaign-info .campaign-title .campaign-tags{
+    font-size: 12px;
+    color: #06C7EC;
+    display: flex;
+}
+.campaign-info .campaign-title .campaign-tags .tag{
+    background-color: #e7f9fd;
+    padding: 2px 4px;
+    margin: 4px 4px 0 0;
+}
+
+.campaign-info .campaigin-owner {
+    display: flex;
+}
+
+.campaign-info .campaigin-owner .header{
+  width: 34px;
+  height: 34px;
+  border-radius: 17px;
+  position: relative;
+}
+
+.campaign-info .campaigin-owner .header .icon-shiming{
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  right: -4px;
+  bottom: 0;
+}
+
+.campaign-info .campaigin-owner .header img {
+    width: 34px;
+    height: 34px;
+    border-radius: 17px;
+}
+
+.campaign-info .campaigin-owner .owner-detail {
+    font-size: 12px;
+    padding-left: 8px;
+    color: #989898;
+}
+
+.campaign-info .campaigin-owner .owner-detail .nickname {
+    font-weight: bold;
+    color: #000;
+}
+
+.campaign-info .campaigin-detail {
+    padding-top: 24px;
+    padding-bottom: 16px;
+    font-size: 14px;
+}
+
+.campaign-info .offer-price {
+    font-size: 28px;
+    font-weight: bold;
+    color: #06C7EC;
+    padding: 12px 0;
+    border-bottom: 1px solid #efefef;
+}
+
+.campaign-info .offer-price .unit {
+    font-size: 14px;
+    padding-left: 4px;
+}
+
+.campaign-info .campaign-time {
+    padding: 16px 0;
+    color: #5a5a5a;
+    display: flex;
+    font-size: 12px;
+}
+
+.campaign-info .campaign-time .time {
+    color: #9a9a9a;
+    font-size: 12px;
+}
+
+.mod-social {
+    margin-top: 12px;
+    padding: 0 24px;
+    background: #fff;
+}
+
+.mod-social .price-user {
+    padding-bottom: 24px;
+    border-bottom: 1px solid #efefef;
+}
+
+.mod-social .price-user .title {
+    font-size: 15px;
+    font-weight: bold;
+    padding: 16px 0;
+}
+
+.mod-social .price-user .container{
+    height: 40px;
+    overflow: hidden;
+}
+
+.mod-social .price-user .user-list {
+    width: 100%;
+    overflow-x: scroll;
+    height: 50px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.mod-social .price-user .user-list .user-slide {
+    white-space: nowrap;
+}
+
+.mod-social .price-user .user-list .user-slide img{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin-right: 8px;
+}
+
+.mod-comment {
+    padding-bottom: 50px;
+}
+
+.mod-comment .title{
+    font-size: 15px;
+    font-weight: bold;
+    padding: 16px 0;
+}
+.mod-comment .comment-list{
+    border-bottom: 1px solid #dedede;
+}
+
+.mod-comment  .comment-item{
+    padding-bottom: 12px;
+    line-height: 1;
+}
+
+.mod-comment  .comment-item .commenter img{
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+}
+.mod-comment  .comment-item .name{
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.mod-comment  .comment-item .content{
+    padding-top: 4px;
+    font-size: 14px;
+    color: #606060;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left:0;
+    right: 0;
+    padding: 8px 32px;
+    background: #fff;
+    z-index: 1000;
+}
+
+.footer .apply{
+    line-height: 32px;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    background: #06C7EC;
+    width: 100%;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.txt-s12 {
+    font-size: 12px;
+}
+
+.txt-s14 {
+    font-size: 14px;
+}
+
+.txt-gray {
+    color: gray;
+}
+
+.down-area {
+  height: 50px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+
+.logo-area{
+  flex: 1;
+}
+
+.down-area .logo-area .logo{
+  flex: 1;
+  width: 150px;
+  height: 22px;
+}
+
+.down-btn{
+  width: 94px;
+  line-height: 34px;
+  background: #06C7EC;
+  border-radius: 17px;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+}
+
+.swiper-pagination-bullet-active{
+  background: #06C7EC;
+}

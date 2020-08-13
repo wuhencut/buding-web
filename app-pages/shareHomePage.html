@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人中心</title>
+    <link rel="stylesheet" href="../css/shareHomePage.css">
+    <link rel="icon" href="../img/index-logo.png">
+</head>
+
+<body>
+    <div class="page-home" id="page" v-if="showPage">
+        <!-- 个人社交信息 -->
+        <div class="person-info">
+            <div class="header-pic">
+                <!-- <img src="userInfo.user_info.icon_image" alt=""> -->
+                <img :src="userInfo.user_info.icon_image || '../img/default-header.png'" alt="">
+                <span class="logo-icon"></span>
+                <span class="tip-icon">{{userInfo.user_info.city_name}}</span>
+                <span class="tip-icon">{{userInfo.user_info.industry}}</span>
+            </div>
+            <div class="name-info">
+                <p class="nickname">{{userInfo.user_info.user_name}} <img :src="userInfo.user_info.gender == 1 ? '../img/icon-male.png' : '../img/icon-female.png'" alt=""
+                        class="sex-icon"></p>
+                <p class="detail">{{userInfo.user_info.signature}}</p>
+            </div>
+            <div class="social-area">
+                <div class="social-item">
+                    <p class="social-title">关注</p>
+                    <p class="social-num">{{userInfo.user_overview.follow}}</p>
+                </div>
+                <div class="social-item">
+                    <p class="social-title">粉丝</p>
+                    <p class="social-num">{{userInfo.user_overview.fans}}</p>
+                </div>
+                <div class="social-item">
+                    <p class="social-title">发布任务</p>
+                    <p class="social-num">{{userInfo.user_overview.task_publish}}</p>
+                </div>
+                <div class="social-item">
+                    <p class="social-title">完成任务</p>
+                    <p class="social-num">{{userInfo.user_overview.task_done}}</p>
+                </div>
+            </div>
+            <div class="mod-btn">
+                <a class="like" href="https://a.app.qq.com/o/simple.jsp?pkgname=com.patchlinker.buding">关注</a>
+                <a class="chat" href="https://a.app.qq.com/o/simple.jsp?pkgname=com.patchlinker.buding">私信</a>
+            </div>
+        </div>
+        <!-- 个人简介 -->
+        <div class="person-profile">
+            <p class="title">个人简介</p>
+            <p class="detail">
+                {{userInfo.user_info.introduce}}
+            </p>
+        </div>
+        <div class="pic-list">
+            <div class="list-item" v-for="(item,index) in userInfo.user_brand_info" :key="index">
+                <p class="item-date">{{moment(item.create_time).format('MM月DD日')}} <span class="date-year">| 2019年</span></p>
+                <div class="pics">
+                    <div v-for="(pic,key) in item.images" class="pic-item" :key="key">
+                        <img :src="pic" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../lib/moment.js"></script>
+    <script type="text/javascript" src="../lib/vue.min.js"></script>
+    <script type="text/javascript" src="../lib/axios.min.js"></script>
+    <script>
+        new Vue({
+            el: '#page',
+            name: 'ShareHomePage',
+            data: {
+                moment: moment,
+                userInfo: {},
+                BASEURL: ' http://test.app.patchlinker.com',
+                showPage: false, // 控制展示页面数据 ，防止无数据报错
+                params: {}
+            },
+            mounted() {
+                if (location.host == 'www.patchlinker.com') {
+                    this.BASEURL = 'http://app.patchlinker.com'
+                }
+                this.getId();
+                this.getUserInfo();
+            },
+            methods: {
+                getId() {
+                    let params = location.search.replace('?', '')
+                    let paramsArr = params.split('&');
+                    for (let i = 0; i < paramsArr.length; i++) {
+                        this.params[paramsArr[i].split('=')[0]] = paramsArr[i].split('=')[1]
+                    }
+                },
+                getUserInfo() {
+                    let t = this;
+                    axios.post(this.BASEURL + '/h5/v1/user/info', {
+                        data: {
+                            user_id: this.params.user_id || '0a13c31a-32d4-55de-bad6-1a19ac000b55'
+                        }
+                    }).then(function (res) {
+                        if (res.data.code == 1) {
+                            t.userInfo = res.data.data || {};
+                            t.showPage = true;
+                        } else {
+                            alert(res.data.msg)
+                        }
+                    }).catch(function (e) {
+                        alert(e)
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

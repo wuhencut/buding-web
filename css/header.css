@@ -1,0 +1,284 @@
+body .top-phone {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  height: 84px;
+  padding: 26px 32px;
+  top: 0;
+  left: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+body .top-phone .menu {
+  z-index: 101;
+  float: right;
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+body .top-phone .menu .menu-before,
+body .top-phone .menu .menu-after {
+  width: 20px;
+  height: 2px;
+  background-color: #000;
+  border-radius: 1px;
+  position: absolute;
+  left: 0;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+body .top-phone .menu .menu-before {
+  top: 0px;
+  -webkit-box-shadow: 0 9px #000;
+          box-shadow: 0 9px #000;
+}
+body .top-phone .menu .menu-after {
+  bottom: 0px;
+}
+body .top-phone .menu .menu-hover-before {
+  top: 9px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transform: rotate(225deg);
+          transform: rotate(225deg);
+}
+body .top-phone .menu .menu-hover-after {
+  bottom: 9px;
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+}
+body .top-phone .menu .son-menu {
+  display: inline-block;
+  width: 80px;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: height 0.5s;
+  transition: height 0.5s;
+  position: absolute;
+  right: -28px;
+  top: 40px;
+  z-index: 102;
+}
+body .top-phone .menu .son-menu a {
+  display: block;
+  line-height: 38px;
+  color: #000;
+  font-size: 14px;
+  text-align: center;
+  border-top: 1px solid #ececec;
+  background-color: #f3f3f3;
+}
+body .top-phone .menu .son-menu a:first-child {
+  border-top: none;
+}
+body .top_theme {
+  border-bottom: 1px solid rgba(151, 151, 151, 0.2);
+}
+body .top a {
+  font-weight: 400;
+}
+body .phone-top-theme ul {
+  border: 1px solid #E3E3E3;
+}
+body .phone-top-theme .menu-list li {
+  background-color: #fff;
+  border-bottom: 1px solid #E3E3E3;
+}
+body .phone-top-theme .menu-list li:last-child {
+  border-bottom: 0px solid #E3E3E3;
+}
+body .phone-top-theme .menu-list a {
+  color: rgba(102, 102, 102, 0.5);
+}
+body .phone-top-theme .menu-list .active a {
+  color: #000;
+  font-weight: 400;
+}
+body .top {
+  -webkit-transition: background-color 1s;
+  transition: background-color 1s;
+  -webkit-transition-timing-function: cubic-bezier(0.08, 1.08, 0.22, 0.98);
+          transition-timing-function: cubic-bezier(0.08, 1.08, 0.22, 0.98);
+  height: 80px;
+  background-color: transparent;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+body .top li {
+  margin-left: 64px;
+}
+body .top .img2 {
+  display: none;
+}
+body .top .top-content {
+  width: 90%;
+  margin: 0 auto;
+}
+body .top .img-box {
+  width: 182px;
+  height: 36px;
+  padding-top: 22px;
+}
+body .top .login-ul {
+  position: absolute;
+  top: 90px;
+  right: -999999px;
+  opacity: 0;
+  -webkit-transition: top 0.3s ease-out 0s, opacity 0.3s ease-out 0s;
+  transition: top 0.3s ease-out 0s, opacity 0.3s ease-out 0s;
+  -webkit-box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.08);
+          box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.08);
+}
+body .top .login-ul li {
+  margin-left: 0px;
+}
+body .top .login-ul a {
+  background: #282829;
+  display: block;
+  width: 128px;
+  color: #666666;
+  text-align: center;
+  height: 48px;
+  line-height: 48px;
+  font-size: 14px;
+}
+body .top .login-ul a:hover {
+  background: #282829;
+}
+body .top .login:hover > .login-ul {
+  right: -49px;
+  opacity: 1;
+  top: 80px;
+}
+body .top .join {
+  position: relative;
+}
+body .top .join:hover .join-menu {
+  height: 60px;
+}
+body .top .join .join-menu {
+  top: 66px;
+  left: 0;
+  position: absolute;
+  height: 0px;
+  overflow: hidden;
+  display: inline-block;
+  width: 70px;
+  background-color: #f3f3f3;
+  -webkit-transition: height 0.3s;
+  transition: height 0.3s;
+}
+body .top .join .join-menu a {
+  text-align: center;
+  display: block;
+  color: #000;
+  line-height: 30px;
+}
+body .top .join .join-menu a:hover {
+  color: #ffd227;
+}
+body .top .join .join-menu a:last-child {
+  border-top: 1px solid #fff;
+}
+body .top .nav-item {
+  cursor: pointer;
+  line-height: 80px;
+  font-size: 14px;
+  color: #666666;
+  margin-left: 0px;
+  letter-spacing: 0;
+  display: block;
+  position: relative;
+}
+body .top .nav-item::after {
+  content: "";
+  -webkit-transition: color 0.1s;
+  transition: color 0.1s;
+  -webkit-transition: width 0.25s;
+  transition: width 0.25s;
+  -webkit-transition-timing-function: cubic-bezier(0.57, 0.58, 0.53, 0.53);
+          transition-timing-function: cubic-bezier(0.57, 0.58, 0.53, 0.53);
+  position: absolute;
+  bottom: 23px;
+  width: 0%;
+  height: 1px;
+  left: 0px;
+  background-color: #666666;
+}
+body .top .get-example {
+  display: block;
+  width: 100px;
+  line-height: 35px;
+  border-radius: 17px;
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #ffd82b;
+  text-align: center;
+}
+body .top .get-example::after {
+  display: none;
+}
+body .top .chatUs::after {
+  -webkit-transition: color 0.1s;
+  transition: color 0.1s;
+  -webkit-transition: width 0.5s !important;
+  transition: width 0.5s !important;
+}
+body .top .nav-item:hover::after {
+  width: 100%;
+}
+body .top .active .nav-item {
+  display: block;
+  position: relative;
+}
+body .top .active .nav-item::after {
+  content: "";
+  position: absolute;
+  bottom: 23px;
+  width: 100%;
+  height: 1px;
+  left: 0px;
+}
+body .top .test {
+  position: absolute;
+  z-index: 1;
+}
+body .top_theme {
+  background-color: #fff;
+  color: #000;
+}
+body .top_theme .img1 {
+  display: none;
+}
+body .top_theme .img2 {
+  display: block;
+}
+body .top_theme .nav-item {
+  color: rgba(102, 102, 102, 0.5);
+}
+body .top_theme .nav-item::after {
+  background-color: #000;
+}
+body .top_theme .nav-item:hover {
+  color: #000;
+}
+body .top_theme .nav-item:hover::after {
+  background-color: #000;
+}
+body .top_theme .active .nav-item {
+  color: #000;
+}
+body .top_theme .active .nav-item::after {
+  background-color: #000;
+}
+body .top_theme .login-ul a {
+  color: rgba(102, 102, 102, 0.5);
+}
+body .top_theme .login-ul a:hover {
+  color: #000;
+  background-color: #fff;
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta property="og:description" content="页面描述">
+    <meta property="og:image" content="http://www.patchlinker.com/img/index-logo.png">
+    <title>任务详情</title>
+    <link rel="stylesheet" href="../lib/swiper.min.css">
+    <link rel="stylesheet" href="../css/shareWatchCampaign.css">
+    <link rel="icon" href="../img/index-logo.png">
+</head>
+
+<body>
+    <!-- v-if="showPage" -->
+    <div class="page-share" v-if="showPage">
+        <div class="campaign-info">
+            <div class="campaign-title">
+                {{taskInfo.title}}
+                <p class="campaign-tags">
+                    <span v-for="(item, index) in taskInfo.task_category" :key="index" class="tag">{{item.name}}</span>
+                </p>
+            </div>
+            <div class="campaigin-owner">
+                <img :src="taskInfo.publish_user_info.icon_image || '../img/default-header.png'" alt="">
+                <div class="owner-detail">
+                    <p class="nickname">{{taskInfo.publish_user_info.user_name || '暂无名字'}}</p>
+                    <p class="owner-tag">{{taskInfo.publish_user_info.signature || '暂无签名'}}</p>
+                </div>
+            </div>
+            <div class="campaigin-detail">
+                {{taskInfo.content}}
+            </div>
+            <div class="swiper-container" v-if="taskInfo.task_images">
+                <div class="swiper-wrapper">
+                    <div v-for="(item,index) in taskInfo.task_images" :key="index" class="swiper-slide">
+                        <img style="object-fit: cover; width: 100%; height: 100%" :src="item" alt="">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="mod-replly">
+                <p class="txt-s16 txt-bold title">任务答案: </p>
+                <div class="campaigin-owner">
+                    <img :src="taskInfo.share_task_answer.user_info.icon_image" alt="">
+                    <div class="owner-detail">
+                        <p class="nickname">{{taskInfo.share_task_answer.user_info.user_name || '暂无名字'}}</p>
+                        <p class="owner-tag">{{taskInfo.share_task_answer.user_info.signature || '暂无签名'}}</p>
+                    </div>
+                </div>
+                <div class="content txt-s14">
+                    {{taskInfo.share_task_answer.content}}
+                </div>
+            </div>
+
+            <div class="mod-watchers txt-center">
+                <p class="reward-title txt-s18 txt-bold">问题价值 <span class="money">{{taskInfo.price}}元</span></p>
+                <p class="watcher-num txt-gray txt-s14">已有{{taskInfo.share_task_look.count}}人围观</p>
+                <div class="watcher-pics">
+                    <div class="wrapper-outer">
+                        <div class="wrapper">
+                            <img :src="item.icon_image" alt="" v-for="(item, index) in taskInfo.share_task_look.user_info" :key="index">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <a class="apply" href="https://a.app.qq.com/o/simple.jsp?pkgname=com.patchlinker.buding">围观￥1</a>
+    </div>
+</body>
+<script type="text/javascript" src="../lib/moment.js"></script>
+<script type="text/javascript" src="../lib/vue.min.js"></script>
+<script type="text/javascript" src="../lib/axios.min.js"></script>
+<script type="text/javascript" src="../lib/swiper.min.js"></script>
+<script>
+    let home = new Vue({
+        name: 'ShareCampaign',
+        el: '.page-share',
+        data() {
+            return {
+                moment: moment,
+                BASEURL: 'http://app.patchlinker.com',
+                // BASEURL: 'http://test.app.patchlinker.com',
+                params: {}, // 参数对象表
+                taskInfo: {},
+                showPage: false,
+                swipeImgs: [], // 轮播图片
+            }
+        },
+        mounted() {
+            if (location.host == 'www.patchlinker.com') {
+                this.BASEURL = 'http://app.patchlinker.com'
+            }
+            this.getId();
+            this.getCampaiginInfo();
+        },
+        methods: {
+            getId(){
+                let params = location.search.replace('?', '')
+                let paramsArr = params.split('&');
+                for(let i = 0; i < paramsArr.length; i++){
+                    this.params[paramsArr[i].split('=')[0]] = decodeURI(paramsArr[i].split('=')[1])
+                }
+            },
+            getCampaiginInfo() {
+                let t = this;
+                axios.post(this.BASEURL + '/h5/v1/task/info', {
+                    data: {
+                        // 老子为什么这么写，因为客户端传给我 多加了个 } 
+                        task_id: this.params.task_id ? this.params.task_id.match(/[0-9a-zA-Z\-\_]+/)[0] : 'cloud-6814c6d6-e769-557f-9c46-73d06abebbb8',
+                        // task_id: this.params.task_id.match(/[0-9a-zA-Z\-\_]+/)[0]
+                    }
+                }).then(function (res) {
+                    if (res.data.code == 1) {
+                        t.taskInfo = res.data.data || {};
+                        document.title = t.taskInfo.title;
+                        t.swipeImgs = t.taskInfo.task_images
+                        t.showPage = true;
+                        t.$nextTick(function () {
+                            var swiper1 = new Swiper('.swiper-container', {
+                                pagination: {
+                                    el: '.swiper-pagination',
+                                },
+                                observer: true, //修改swiper自己或子元素时，自动初始化swiper
+                                observeParents: true, //修改swiper的父元素时，自动初始化swiper
+                            });
+                        })
+                    }
+                }).catch(function (e) {
+                    alert(e)
+                })
+            }
+        }
+    })
+</script>
+
+</html>

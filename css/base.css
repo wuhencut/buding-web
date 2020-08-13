@@ -1,0 +1,227 @@
+@charset "utf-8";
+
+/*!
+ * @名称：base.css
+ * @功能：1、重设浏览器默认样式
+ *       2、设置通用原子类
+ */
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html {
+    font-family: "微软雅黑";
+    background: #ffffff;
+    color: black;
+    line-height: 1;
+    font-weight: 300;
+}
+
+body {
+    -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 300;
+}
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+video,
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    /*font-weight: 300;*/
+    margin: 0;
+    padding: 0;
+}
+input[type="text"],
+input[type="tel"] {
+    box-shadow: none;
+    -webkit-appearance: none;
+}
+
+/* 要注意表单元素并不继承父级 font 的问题 */
+body,
+button,
+input,
+select,
+textarea {
+    font: 12px \5b8b\4f53, arial, sans-serif;
+    font-family: "Avenir", "PingFang SC", "Microsoft YaHei";
+}
+
+input,
+select,
+textarea {
+    font-size: 100%;
+}
+
+/* 去掉 table cell 的边距并让其边重合 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* ie bug：th 不继承 text-align */
+th {
+    text-align: inherit;
+}
+
+/* 去除默认边框 */
+fieldset,
+img {
+    border: none;
+}
+
+/* 去掉列表前的标识，li 会继承 */
+ol,
+ul {
+    list-style: none;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+a {
+    cursor: pointer;
+}
+
+/* 让链接在 hover 状态下显示下划线 */
+a:hover {
+    text-decoration: none;
+}
+
+/* 默认不显示下划线，保持页面简洁 */
+ins,
+a {
+    text-decoration: none;
+}
+
+/* 去除 ie6 & ie7 焦点点状线 */
+a:focus,
+*:focus {
+    outline: none;
+}
+
+.clearfix {
+    zoom: 1;
+    /* for ie6 & ie7 */
+}
+
+.clear {
+    clear: both;
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+}
+
+.block {
+    display: block;
+}
+
+.txt-black {
+    color: #000;
+}
+
+.txt-white {
+    color: #fff;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+.flex-middle{
+  align-items: center;
+}
+
+.flex-center{
+  justify-content: center;
+}
+
+.flex-left{
+  justify-content: flex-start;
+}
+
+.flex-s1 {
+    flex: 1;
+}
+.txt-left{
+  text-align: left;
+}
+.txt-s10{
+  font-size: 10px;
+}
+.txt-s12{
+  font-size: 12px;
+}
+.txt-s14{
+  font-size: 14px;
+}
+.txt-s16{
+  font-size: 16px;
+}
+.txt-s18{
+  font-size: 18px;
+}
+.txt-s20{
+  font-size: 20px;
+}
+.txt-s22{
+  font-size: 22px;
+}
+.txt-s24{
+  font-size: 24px;
+}
+.txt-s26{
+  font-size: 26px;
+}
+.txt-s28{
+  font-size: 28px;
+}
+.txt-s56{
+  font-size: 56px;
+}
+.txt-bold{
+  font-weight: 900;
+}

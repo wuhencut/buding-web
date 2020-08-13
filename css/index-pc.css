@@ -1,0 +1,261 @@
+@media screen and (min-width: 961px) {
+    html,
+    body {
+        position: relative;
+        height: 100%;
+    }
+
+    * {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .page {
+      width: 100%;
+      height: 100%;
+    }
+    .page-pc {
+      width: 100%;
+      height: 100%;
+    }
+    .page-main {
+      width: 100%;
+      height: 100%;
+    }
+    .page-phone{
+      display: none;
+    }
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+    .fix-header{
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 50px;
+      background: #ffffff;
+      z-index: 100;
+    }
+    .fix-header {
+      padding: 50px 150px 0 150px;
+    }
+
+    .fix-header .left-logo img{
+      width: 300px;
+      height: 44px;
+    }
+    .fix-header .nav-btns .nav-btn{
+      width: 182px;
+      height: 60px;
+      border-radius: 30px;
+      background: #fff;
+      color: #000;
+      text-align: center;
+      line-height: 60px;
+      cursor: pointer;
+      user-select: none;
+      transition: 0.2s all linear;
+      margin-left: 20px;
+    }
+    .fix-header .nav-btns .nav-btn-active{
+      background: #030000;
+      color: #ffffff;
+    }
+    .page-main .index-1 {
+      position: relative;
+    }
+    .page-main .index-1 .left{
+      text-align: left;
+    }
+    .page-main .index-1 .right {
+      padding: 0 130px;
+    }
+    .page-main .index-1 .left .title{
+      height: 56px;
+      white-space: nowrap;
+    }
+    .page-main .index-1 .left .tip{
+      padding-top: 32px;
+    }
+    .page-main .index-1 .left .content{
+      padding: 30px 0 50px 0;
+      word-break: break-all;
+    }
+    .page-main .index-1 .left .down-btn {
+      width: 200px;
+      height: 60px;
+      border-radius: 30px;
+      background: #000000;
+      color: #fff;
+      box-shadow:0px 10px 40px 0px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      line-height: 60px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .page-main .index-1 .right img {
+      width: 100%;
+    }
+    .mod-download {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #000;
+      border-radius: 15px 15px 0 0;
+      height: 0;
+      -webkit-transition: all 0.3s linear;
+      transition: all 0.3s linear;
+    }
+    .mod-download-show{
+      height: 180px;
+      padding-top: 30px;
+    }
+    .close-mod-download{
+      display: inline-block;
+      width: 40px;
+      height: 6px;
+      background:#fff;
+      position: absolute;
+      left: 50%;
+      border-radius: 3px;
+      top: 4px;
+      margin-left: -20px;
+      cursor: pointer;
+    }
+
+    .mod-download .down-btn  .btn{
+      position: relative;
+    }
+    .mod-download .down-btn  .btn 。btn-info{
+      padding: 0 4px ;
+    }
+    .ios.btn{
+      margin-right: 20px;
+    }
+    .mod-download .down-btn  .btn>img{
+      position: absolute;
+      width: 237px;
+      height: 253px;
+    }
+    .mod-download .down-btn  .android > img, .mod-download .down-btn  .ios > img{
+      top: -200px;
+      left: 50%;
+      margin-left: -115px;
+    }
+    .mod-download .down-btn  .btn .flex > img{
+      margin-right: 4px;
+      width: 270px;
+      height: 132px;
+    }
+
+    .index-2 {
+      width: 100%;
+      height: 100%;
+    }
+
+    .wrapper .title-bg {
+      color: #F2F2F2;
+      font-size: 76px;
+    }
+    .wrapper .mod-title .title{
+      margin-top: -60px;
+      padding-bottom: 42px;
+    }
+    .wrapper .mod-content p{
+      padding-bottom: 14px;
+    }
+    .index-third .wrapper{
+      width: 100%;
+    }
+    .index-third .wrapper .concat-us{
+      padding: 0 80px;
+    }
+    .index-third .wrapper .concat-us .channel{
+      width: 336px;
+      height: 386px;
+      margin-right: 42px;
+      box-shadow: 5px 5px 30px #ececec;
+      text-align: center;
+      border-radius: 16px;
+    }
+    .index-third .wrapper .concat-us .channel img{
+      width: 54px;
+      height: 50px;
+    }
+    .index-third .wrapper .concat-us .channel .name{
+      padding: 22px 0 6px 0;
+    }
+    .index-third .wrapper .copy-right{
+      position: absolute;
+      text-align: center;
+      left: 0;
+      right: 0;
+      bottom: 20px;
+      font-size: 12px;
+    }
+    .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
+      position:absolute;
+      bottom: 100px;
+    }
+    .index-second .mod-nav {
+      position: absolute;
+      bottom: 0;
+      height: 60px;
+      left: 0;
+      right: 0;
+      z-index: 101;
+      background: #fff;
+      box-shadow: 0 -5px 5px #ececec;
+      cursor: pointer;
+    }
+    .index-second .mod-nav .wrapper{
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    .index-second .mod-nav .wrapper .active{
+      width: 64px;
+      height: 64px;
+    }
+    .index-second .mod-nav .wrapper .inactive{
+      width: 24px;
+      height: 24px;
+    }
+    .index-second .mod-nav .wrapper .line{
+      display: inline-block;
+      width: 100px;
+      height: 0;
+      margin: 0 14px;
+      border-top: 1px dashed #030000;
+    }
+
+    .index1-wrapper {
+      width: 100%;
+      padding: 0 150px;
+    }
+}
